@@ -15,8 +15,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('Home');
 
+use App\Http\Controllers\PostController;
+Route::resource('Posts', PostController::class);
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
